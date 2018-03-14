@@ -12,13 +12,18 @@ public class Main {
 //        System.out.println("input file path");
 //        String path = input.nextLine();
         try (BufferedReader mhaHart = new BufferedReader(new FileReader("cookies.txt"))) {
-            String fileText = mhaHart.readLine();
-            String[] splitFileText = fileText.split(" ");
-            int wordCount = splitFileText.length;
-            System.out.println("The word count" + wordCount);
+
+            String fileTextLine;
+            int wordCount = 0;
+
+            while((fileTextLine = mhaHart.readLine()) != null){
+                String[] splitFileTextLine = fileTextLine.split(" ");
+                wordCount += splitFileTextLine.length;
+            }
+
+            System.out.println("The word count is " + wordCount);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
